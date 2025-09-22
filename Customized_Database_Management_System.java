@@ -1,5 +1,29 @@
+////////////////////////////////////////////////////////////////////////
+//
+// ProjectName    :    Customized Database Management system
+// Description    :    Used to implement the SQL queries by itself
+// Author         :    Sakshi Pankaj Borhade
+// Date           :    22-09-2025
+//
+////////////////////////////////////////////////////////////////////////
+
+////////////////////////////////////////////////////////////////////////
+//
+// Built in Packages
+//
+////////////////////////////////////////////////////////////////////////
+
 import java.util.*;
 import java.io.*;
+
+////////////////////////////////////////////////////////////////////////
+//
+// Class Name   :   Employee
+// Description  :   This class is the template of the Table employee
+// Author       :   Sakshi Pankaj Borhade
+// Date         :   22-09-2025
+//
+////////////////////////////////////////////////////////////////////////
 
 class Employee implements Serializable //(Marker interface it dosent contain any methods)
 {
@@ -17,6 +41,21 @@ class Employee implements Serializable //(Marker interface it dosent contain any
         Counter = 1;
     }
 
+    ///////////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Function Name    :   Employee
+    // Description      :   This Function is used to initialize the Characteristics
+    // Parameters       :   
+    //          B : Name of the Employee
+    //          C : Age of the employee
+    //          D : Address of the employee
+    //          E : Salary of the employee
+    //
+    // Author           :   Sakshi Pankaj Borhade
+    // Date             :   22-09-2025
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////////
+
     public Employee(
                         String B, 
                         int C, 
@@ -31,6 +70,16 @@ class Employee implements Serializable //(Marker interface it dosent contain any
         this.EmpSalary = E;
     }
 
+    ///////////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Function Name    :   DisplayInformation
+    // Description      :   This Function is used to Display the information
+    // Parameters       :   NONE
+    // Author           :   Sakshi Pankaj Borhade
+    // Date             :   22-09-2025
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////////
+
     public void DisplayInformation()
     {
         System.out.println("Id : "+this.EmpId+
@@ -39,6 +88,16 @@ class Employee implements Serializable //(Marker interface it dosent contain any
                            " Address : "+EmpAddress+
                            " Salary : "+this.EmpSalary);
     }
+
+    ///////////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Function Name    :   toString
+    // Description      :   This Function is used to get the values from the table
+    // Parameters       :   NONE
+    // Author           :   Sakshi Pankaj Borhade
+    // Date             :   22-09-2025
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////////
 
     public String toString()
     {
@@ -50,16 +109,50 @@ class Employee implements Serializable //(Marker interface it dosent contain any
     }
 }
 
+////////////////////////////////////////////////////////////////////////
+//
+// Class Name   :   MarvellousDBMS
+// Description  :   This class Contains all the functionality provided
+// Author       :   Sakshi Pankaj Borhade
+// Date         :   22-09-2025
+//
+////////////////////////////////////////////////////////////////////////
 
 class MarvellousDBMS implements Serializable
 {
     private LinkedList<Employee> Table;
+
+    ///////////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Function Name    :   MarvellousDBMS
+    // Description      :   This Function is used to initialize the object
+    // Parameters       :   NONE
+    // Author           :   Sakshi Pankaj Borhade
+    // Date             :   22-09-2025
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////////
+
 
     public MarvellousDBMS()
     {
         System.out.println("MarvellousDBMS Started Succefully...");
         Table = new LinkedList<> ();
     }
+
+    ///////////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Function Name    :   InsertIntoTable
+    // Description      :   This Function is used to insert new record into the table
+    // Parameters       :   
+    //          name : Name of the Employee
+    //          age : Age of the employee
+    //          address : Address of the employee
+    //          Salary : Salary of the employee
+    //
+    // Author           :   Sakshi Pankaj Borhade
+    // Date             :   22-09-2025
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////////
 
     //insert into employee values(1,'Amit',23,'Pune',21000);
     public void InsertIntoTable(
@@ -76,6 +169,16 @@ class MarvellousDBMS implements Serializable
         System.out.println("Marvellous DBMS : > New record inserted successfully\n");
     }
 
+    ///////////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Function Name    :   SelectStarFrom
+    // Description      :   This Function is used to Display the whole table
+    // Parameters       :   NONE
+    // Author           :   Sakshi Pankaj Borhade
+    // Date             :   22-09-2025
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////////
+
     //Select * from employee;
     public void SelectStarFrom()
     {
@@ -91,6 +194,16 @@ class MarvellousDBMS implements Serializable
         System.out.println("------------------------------------------------------------------");
     }
 
+    ///////////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Function Name    :   TakeBackup
+    // Description      :   This Function is used to Take the backup of the inserted records
+    // Parameters       :   NONE
+    // Author           :   Sakshi Pankaj Borhade
+    // Date             :   22-09-2025
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////////
+
     public void TakeBackup()
     {
         try
@@ -105,6 +218,18 @@ class MarvellousDBMS implements Serializable
             System.out.println("Exception occured...");
         }
     }
+
+    ///////////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Function Name    :   RestoreBackup
+    // Description      :   This Function is used to restore the backup taken of inserted records
+    // Parameters       :   
+    //          path : The Path of the backup.
+    //
+    // Author           :   Sakshi Pankaj Borhade
+    // Date             :   22-09-2025
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////////
 
     public static MarvellousDBMS RestoreBackup(String path)
     {
@@ -125,6 +250,18 @@ class MarvellousDBMS implements Serializable
             return null;
         }
     }
+
+    ///////////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Function Name    :   SelectSpecificID
+    // Description      :   This Function is used to display records specified by id.
+    // Parameters       :   
+    //          id : Holds the id by which you want to display.
+    //
+    // Author           :   Sakshi Pankaj Borhade
+    // Date             :   22-09-2025
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////////
 
     //Select * from employee where EmpId = 11;
     public void SelectSpecificID(
@@ -149,6 +286,19 @@ class MarvellousDBMS implements Serializable
         }
     }
 
+    ///////////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Function Name    :   SelectSpecificName
+    // Description      :   This Function is used to display records specified by name.
+    // Parameters       :   
+    //          name : Holds the name by which you want to display.
+    //
+    // Author           :   Sakshi Pankaj Borhade
+    // Date             :   22-09-2025
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////////
+
+
     //Select * from employee where EmpName = 'amit';
     public void SelectSpecificName(
                                         String name
@@ -170,6 +320,19 @@ class MarvellousDBMS implements Serializable
             System.out.println("There is no such record");
         }
     }
+
+    ///////////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Function Name    :   DeleteSpecificID
+    // Description      :   This Function is used to Delete record specified by id.
+    // Parameters       :   
+    //          id : Holds the id by which you want to delete.
+    //
+    // Author           :   Sakshi Pankaj Borhade
+    // Date             :   22-09-2025
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////////
+
 
     //Delete from employee where EmpId = 11;
     public void DeleteSpecificId(   
@@ -201,6 +364,19 @@ class MarvellousDBMS implements Serializable
         }
     }
 
+    ///////////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Function Name    :   SelectSpecificAddress
+    // Description      :   This Function is used to display records specified by address.
+    // Parameters       :   
+    //          address : Holds the address by which you want to display.
+    //
+    // Author           :   Sakshi Pankaj Borhade
+    // Date             :   22-09-2025
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////////
+
+
     //Select * from employee where EmpAddress = 'Pune';
     public void SelectSpecificAddress(
                                             String address
@@ -222,6 +398,19 @@ class MarvellousDBMS implements Serializable
             System.out.println("There is no such record");
         }
     }
+
+    ///////////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Function Name    :   SelectSpecificAge
+    // Description      :   This Function is used to display records specified by age.
+    // Parameters       :   
+    //          age : Holds the age by which you want to display.
+    //
+    // Author           :   Sakshi Pankaj Borhade
+    // Date             :   22-09-2025
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////////
+
 
     //Select * from employee where EmpAge = 22;
     public void SelectSpecificAge(
@@ -246,6 +435,19 @@ class MarvellousDBMS implements Serializable
         }
     }
 
+    ///////////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Function Name    :   SelectSpecificSalary
+    // Description      :   This Function is used to display records specified by salary.
+    // Parameters       :   
+    //          salary : Holds the salary by which you want to display.
+    //
+    // Author           :   Sakshi Pankaj Borhade
+    // Date             :   22-09-2025
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////////
+
+
     //Select * from employee where EmpSalary = 22000;
     public void SelectSpecificSalary(
                                         int Salary
@@ -268,6 +470,18 @@ class MarvellousDBMS implements Serializable
             System.out.println("There is no such record");
         }
     }
+
+    ///////////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Function Name    :   DeleteSpecificAge
+    // Description      :   This Function is used to Delete record specified by age.
+    // Parameters       :   
+    //          age : Holds the age by which you want to delete.
+    //
+    // Author           :   Sakshi Pankaj Borhade
+    // Date             :   22-09-2025
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////////
 
     //Delete from employee where EmpAge = 21;
     public void DeleteSpecificAge(   
@@ -299,6 +513,18 @@ class MarvellousDBMS implements Serializable
         }
     }
 
+    ///////////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Function Name    :   DeleteSpecificSalary
+    // Description      :   This Function is used to Delete record specified by salary.
+    // Parameters       :   
+    //          salary : Holds the salary by which you want to delete.
+    //
+    // Author           :   Sakshi Pankaj Borhade
+    // Date             :   22-09-2025
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////////
+
     //Delete from employee where EmpSalary = 21000;
     public void DeleteSpecificSalary(   
                                         int salary
@@ -328,6 +554,18 @@ class MarvellousDBMS implements Serializable
             System.out.println("Record succesfully deleted");
         }
     }
+
+    ///////////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Function Name    :   DeleteSpecificName
+    // Description      :   This Function is used to Delete record specified by name.
+    // Parameters       :   
+    //          name : Holds the name by which you want to delete.
+    //
+    // Author           :   Sakshi Pankaj Borhade
+    // Date             :   22-09-2025
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////////
 
     //Delete from employee where EmpName = 'amit';
     public void DeleteSpecificName(   
@@ -359,6 +597,18 @@ class MarvellousDBMS implements Serializable
         }
     }
 
+    ///////////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Function Name    :   DeleteSpecificAddress
+    // Description      :   This Function is used to Delete record specified by address.
+    // Parameters       :   
+    //          address : Holds the address by which you want to delete.
+    //
+    // Author           :   Sakshi Pankaj Borhade
+    // Date             :   22-09-2025
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////////
+
     //Delete from employee where EmpAddress = 'pune';
     public void DeleteSpecificAddress(   
                                         String address
@@ -389,6 +639,16 @@ class MarvellousDBMS implements Serializable
         }
     }
 
+    ///////////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Function Name    :   SelectMaxSalary
+    // Description      :   This Function is used to give maximum salary of all the records.
+    // Parameters       :   NONE
+    // Author           :   Sakshi Pankaj Borhade
+    // Date             :   22-09-2025
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////////
+
     //Select max(salary) from student;
     public int SelectMaxSalary() 
     {
@@ -410,6 +670,16 @@ class MarvellousDBMS implements Serializable
 
         return iMax;
     }
+
+    ///////////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Function Name    :   SelectMinSalary
+    // Description      :   This Function is used to give minimum salary of all the records.
+    // Parameters       :   NONE
+    // Author           :   Sakshi Pankaj Borhade
+    // Date             :   22-09-2025
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////////
 
     //Select min(salary) from student;
     public int SelectMinSalary() 
@@ -433,10 +703,30 @@ class MarvellousDBMS implements Serializable
         return iMin;
     }
 
+    ///////////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Function Name    :   SelectCountEmployee
+    // Description      :   This Function is used to give count of the total records in the table.
+    // Parameters       :   NONE
+    // Author           :   Sakshi Pankaj Borhade
+    // Date             :   22-09-2025
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////////
+
     public int SelectCountEmployee()
     {
         return Table.size();
     }
+
+    ///////////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Function Name    :   SelectSumSalary
+    // Description      :   This Function is used to give Summation of salary of all the records.
+    // Parameters       :   NONE
+    // Author           :   Sakshi Pankaj Borhade
+    // Date             :   22-09-2025
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////////
 
     //Select sum(salary) from student;
     public int SelectSumSalary() 
@@ -456,6 +746,16 @@ class MarvellousDBMS implements Serializable
 
         return iSum;
     }
+
+    ///////////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Function Name    :   SelectAvgSalary
+    // Description      :   This Function is used to give Average of salary of all the records.
+    // Parameters       :   NONE
+    // Author           :   Sakshi Pankaj Borhade
+    // Date             :   22-09-2025
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////////
 
     //Select avg(salary) from student;
     public double SelectAvgSalary() 
@@ -479,6 +779,20 @@ class MarvellousDBMS implements Serializable
         return iAvg;
     }
 
+    ///////////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Function Name    :   UpdateSalaryById
+    // Description      :   This Function is used to update a specific record by id.
+    // Parameters       :   
+    //          id : Holds the id by which you want to update.
+    //          NewSalary : Holds the new salary by which you want to update.
+    //
+    // Author           :   Sakshi Pankaj Borhade
+    // Date             :   22-09-2025
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////////
+
+    // update employee set salary = __ where id = __ 
     public void UpdateSalaryById(int id, int Newsalary) 
     {
         boolean found = false;
@@ -498,10 +812,20 @@ class MarvellousDBMS implements Serializable
         {
             System.out.println("Employee with ID " + id + " not found.");
         }
-}
-
+    }
 
 }//End of Marvellous DBMS
+
+
+///////////////////////////////////////////////////////////////////////////////////////////
+//
+// className    :   Customized_Database_Management_System
+// Description  :   This is the entry point of the project.
+// Author       :   Sakshi Pankaj Borhade
+// Date         :   22-09-2025
+//
+///////////////////////////////////////////////////////////////////////////////////////////
+
 
 class Customized_Database_Management_System
 {
